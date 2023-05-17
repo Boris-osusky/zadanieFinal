@@ -1,6 +1,18 @@
 <?php
 include_once('config.php');
 
+session_start();
+
+if (isset($_SESSION['logged']) && $_SESSION['role'] == 'student') {
+    header('Location: studentRestricted.php');
+    exit;
+}
+
+if (isset($_SESSION['logged']) && $_SESSION['role'] == 'teacher') {
+    header('Location: teacherRestricted.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
