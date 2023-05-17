@@ -31,10 +31,35 @@ function checkUsername($username)
     return true;
 }
 
+function checkFirstName($firstname) {
+    if (!preg_match('/^[a-zA-Z]+$/', $firstname)) {
+        return false;
+    }   
+    return true;
+}
+
+function checkLastName($lastname) {
+    if (!preg_match('/^[a-zA-Z]+$/', $lastname)) {
+        return false;
+    }
+    return true;
+}
+
 
 function checkGmail($email)
 {
     if (!preg_match('/^[\w.+\-]+@gmail\.com$/', trim($email))) {
+        return false;
+    }
+    return true;
+}
+
+function checkPasswordStrength($password) {
+    if (!preg_match('/\d/', $password)) {
+        return false;
+    }
+    
+    if (!preg_match('/[A-Z]/', $password)) {
         return false;
     }
     return true;
@@ -66,8 +91,7 @@ function userExist($db, $login, $email)
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errmsg = "";
-    
-        // Validacia username
+
         if (checkEmpty($_POST['login']) === true) {
             $errmsg .= "<p>Zadajte login.</p>";
         } elseif (checkLength($_POST['login'], 6, 32) === false) {
@@ -76,35 +100,32 @@ function userExist($db, $login, $email)
             $errmsg .= "<p>Login moze obsahovat iba velke, male pismena, cislice a podtrznik.</p>";
         }
     
-        // Kontrola pouzivatela
         if (userExist($pdo, $_POST['login'], $_POST['email']) === true) {
             $errmsg .= "Pouzivatel s tymto e-mailom / loginom uz existuje.</p>";
         }
     
-        // Validacia mailu
-        if (checkGmail($_POST['email'])) {
-            $errmsg .= "Prihlaste sa pomocou <a role='button' style='color: white;' class='text-decoration-none' href='" . filter_var($auth_url, FILTER_SANITIZE_URL) . "'> Google prihlasenia";
-        }
-    
-        // Validacia hesla
         if (checkEmpty($_POST['password']) === true) {
             $errmsg .= "<p>Zadajte heslo.</p>";
         } elseif (checkLength($_POST['password'], 8, 32) === false) {
             $errmsg .= "<p>Heslo musi mat min. 8 a max. 32 znakov.</p>";
+        } elseif (checkPasswordStrength($_POST['password']) === false) {
+            $errmsg .= "<p>Heslo musi obsahovat aspon jedno cislo a jedno velke pismeno.</p>";
         }
     
-        // Validacia mena
         if (checkEmpty($_POST['firstname']) === true) {
             $errmsg .= "<p>Zadajte svoje meno.</p>";
         } elseif (checkLength($_POST['firstname'], 2, 64) === false) {
             $errmsg .= "<p>Meno musi mat min. 2 a max. 64 znakov.</p>";
+        } elseif (checkFirstName($_POST['firstname']) === false) {
+            $errmsg .= "<p>Meno musi obsahovat iba pismena.</p>";
         }
     
-        // Validacia priezviska
         if (checkEmpty($_POST['lastname']) === true) {
             $errmsg .= "<p>Zadajte svoje priezvisko.</p>";
         } elseif (checkLength($_POST['lastname'], 2, 64) === false) {
             $errmsg .= "<p>Priezvisko musi mat min. 2 a max. 64 znakov.</p>";
+        } elseif (checkLastName($_POST['lastname']) === false) {
+            $errmsg .= "<p>Priezvisko musi obsahovat iba pismena.</p>";
         }
     
         if (empty($errmsg)) {
@@ -115,7 +136,6 @@ function userExist($db, $login, $email)
             $login = $_POST['login'];
             $hashed_password = password_hash($_POST['password'], PASSWORD_ARGON2ID);
     
-            // Bind parametrov do SQL
             $stmt = $pdo->prepare($sql);
 
             $role = "student";
