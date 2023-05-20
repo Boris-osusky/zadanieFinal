@@ -1,4 +1,5 @@
 <?php
+echo "LOGIN TU";
 
 session_start();
 require_once "config.php";
@@ -101,7 +102,7 @@ unset($pdo);
         </div>
 
     </div>
-    
+
     </div>
 </body>
 
