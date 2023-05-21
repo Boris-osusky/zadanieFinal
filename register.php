@@ -147,7 +147,7 @@ function userExist($db, $login, $email)
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <title>Register student</title>
+    <title>Register</title>
 </head>
 <body onload="startPage()">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
@@ -163,10 +163,10 @@ function userExist($db, $login, $email)
                 </ul>
                 <ul class="navbar-nav ms-auto navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('sk')">SK</a>
+                        <a class="nav-link langButton" onclick="setLanguage('sk')">SK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('en')">EN</a>
+                        <a class="nav-link langButton" onclick="setLanguage('en')">EN</a>
                     </li>
                 </ul>
             </div>

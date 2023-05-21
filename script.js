@@ -7,16 +7,6 @@ function renderMath() {
   });
 }
 
-function renderButtons(){
-  var sqrtNormal = document.getElementById("sqrtNormal");
-  //var output = document.getElementById("mathOutput");
-  sqrtNormal.value = "\\(" + sqrtNormal.value + "\\)";
-  MathJax.typesetPromise([sqrtNormal]).catch(function (err) {
-    sqrtNormal.value = "Chyba pri zobrazovaní matematického vzorca: " + err.message;
-  });
-
-}
-
 function addOperation(op){
     var input = document.getElementById("answerTaskInput");
     var cursorPos= input.selectionStart;
@@ -34,17 +24,17 @@ function addOperation(op){
         break;
         case 'sum': input.value = textBeforeCursor+ "\\sum_{i=1}^n y"+ textAfterCursor;
         break;
-        case 'sin': input.value = textBeforeCursor+ "\\sin"+ textAfterCursor;
+        case 'sin': input.value = textBeforeCursor+ "\\sin{x}"+ textAfterCursor;
         break;
-        case 'cos': input.value = textBeforeCursor+ "\\cos"+ textAfterCursor;
+        case 'cos': input.value = textBeforeCursor+ "\\cos{x}"+ textAfterCursor;
         break;
-        case 'tan': input.value = textBeforeCursor+ "\\tan"+ textAfterCursor;
+        case 'tan': input.value = textBeforeCursor+ "\\tan{x}"+ textAfterCursor;
         break;
         case 'frac': input.value = textBeforeCursor+ "\\frac{x}{y}"+ textAfterCursor;
         break;
-        case 'square': input.value = textBeforeCursor+ "\[\]"+ textAfterCursor;
+        case 'lim': input.value = textBeforeCursor+ "\\lim_{n\\to\\infty}{x}"+ textAfterCursor;
         break;
-        case 'round': input.value = textBeforeCursor+ "\(\)"+ textAfterCursor;
+        case 'integral': input.value = textBeforeCursor+ "\\int_y^n{x}"+ textAfterCursor;
         break;
         default: break;
     }

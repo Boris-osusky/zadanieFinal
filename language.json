@@ -24,7 +24,23 @@
         "regH2": "Vytvorenie nového konta študenta",
         "generateTaskButton": "Generovať úlohu",
         "sendAnsweredTaskButton": "Odoslať odpoveď",
-        "mathInput": "Napíšte sem vašu odpoveď"
+        "answerTaskInput": "Zadajte odpoveď",
+        "sqrtNormal": "odmocnina",
+        "sqrtHigher": "y-tá odmocnina",
+        "expHigher": "exponent",
+        "expLower": "dolný index",
+        "sum": "suma",
+        "sin": "sinus",
+        "cos": "kosínus",
+        "tan": "tangens",
+        "frac": "zlomok",
+        "lim": "limita",
+        "integral": "integrál",
+        "teacherFrom": "Od:",
+        "teacherTo": "Do:",
+        "teacherPoints": "Body:",
+        "teacherStudent": "Študent:",
+        "teacherTask": "Úloha:" 
     },
     "en": {
         "navText": "Private zone",
@@ -51,7 +67,23 @@
         "regH2": "Sign up for new account.",
         "generateTaskButton": "Generate task",
         "sendAnsweredTaskButton": "Send answer",
-        "mathInput": "Write your answer here"
+        "answerTaskInput": "Write your answer here",
+        "sqrtNormal": "square root",
+        "sqrtHigher": "y-th root",
+        "expHigher": "exponent",
+        "expLower": "lower index",
+        "sum": "sum",
+        "sin": "sinus",
+        "cos": "cosinus",
+        "tan": "tangent",
+        "frac": "fraction",
+        "lim": "limit",
+        "integral": "integral",
+        "teacherFrom": "From:",
+        "teacherTo": "To:",
+        "teacherPoints": "Points:",
+        "teacherStudent": "Student:",
+        "teacherTask": "Task:" 
     }
 }
 ]

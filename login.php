@@ -98,10 +98,10 @@ unset($pdo);
                 </ul>
                 <ul class="navbar-nav ms-auto navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('sk')">SK</a>
+                        <a class="nav-link langButton" onclick="setLanguage('sk')">SK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('en')">EN</a>
+                        <a class="nav-link langButton" onclick="setLanguage('en')">EN</a>
                     </li>
                 </ul>
             </div>

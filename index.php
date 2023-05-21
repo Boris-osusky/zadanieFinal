@@ -17,7 +17,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <title>WEBTECH 2</title>
+    <title>Home</title>
 </head>
 
 <body onload="startPage()">
@@ -36,19 +36,19 @@ session_start();
                         if (isset($_SESSION["logged"]) && $_SESSION["logged"] === true)
                             if(isset($_COOKIE["language"])){
                                 if($_COOKIE["language"]== "sk")
-                                    echo '<a id= "navText" class="nav-link" href="restricted.php">Odhlásiť sa</a>';
+                                    echo '<a id= "indexLogout" class="nav-link" href="restricted.php">Odhlásiť sa</a>';
                                 else 
-                                    echo '<a id= "navText" class="nav-link" href="restricted.php">Logout</a>';
+                                    echo '<a id= "indexLogout" class="nav-link" href="restricted.php">Logout</a>';
                             }
                         ?>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('sk')">SK</a>
+                        <a class="nav-link langButton" onclick="setLanguage('sk')">SK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('en')">EN</a>
+                        <a class="nav-link langButton" onclick="setLanguage('en')">EN</a>
                     </li>
                 </ul>
             </div>

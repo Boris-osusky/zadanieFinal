@@ -11,7 +11,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Teacher page</title>
+    <title>Teacher</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/dragNdrop.js"></script>
     <script src="js/assignTaskByTeacher.js"></script>
@@ -28,7 +28,7 @@
     </style>
 </head>
 
-<body>
+<body onload="startPage()">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -45,10 +45,10 @@
                 </ul>
                 <ul class="navbar-nav ms-auto navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('sk')">SK</a>
+                        <a class="nav-link langButton" onclick="setLanguage('sk')">SK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="setLanguage('en')">EN</a>
+                        <a class="nav-link langButton" onclick="setLanguage('en')">EN</a>
                     </li>
                 </ul>
             </div>
@@ -61,15 +61,15 @@
             <div class="card-body">
                 <div class="d-flex justify-content-center form-group mb-3">
                     <div class="form-group text-left mb-3">
-                        <label id= "teacherFrom" for="fromDateInput"><b>Od:</b></label>
+                        <label id= "teacherFrom" for="fromDateInput">Od:</label>
                         <input type="date" id="fromDateInput">
                     </div>
                     <div class="form-group text-left mb-3">
-                        <label id= "teacherTo" for="toDateInput"><b>Do:</b></label>
+                        <label id= "teacherTo" for="toDateInput">Do:</label>
                         <input type="date" id="toDateInput">
                     </div>
                     <div class="form-group text-left mb-3">
-                        <label id= "teacherPoints" for="pointsInput"><b>Body:</b></label>
+                        <label id= "teacherPoints" for="pointsInput">Body:</label>
                         <input type="text" id="pointsInput" placeholder="Enter points">
                     </div>
                 </div>
@@ -79,11 +79,11 @@
                 </div>
                 <div class="form-group text-center mb-3">
                     <div class="form-group text-center mb-3">
-                        <label id= "teacherStudent" for="selectStudent"><b>Študent</b></label>
+                        <label id= "teacherStudent" for="selectStudent">Študent</label>
                         <select id="selectStudent"></select>
                     </div>
                     <div class="form-group text-center mb-3">
-                        <label id= "teacherTask" for="selectTask"><b>Úloha</b></label>
+                        <label id= "teacherTask" for="selectTask">Úloha</label>
                         <select id="selectTask"></select>
                     </div>
                 </div>
@@ -95,27 +95,6 @@
         </div>
     </div>
 
-
-    <!-- <div class= "row justify-content-center">
-    <div class="col-md-6">
-    <div class="form-group mb-3">
-        <input type="text" id="pointsInput" placeholder="Enter points">
-        <input type="date" id="fromDateInput">
-        <input type="date" id="toDateInput">
-    </div>
-    <div class="form-group mb-3">
-        <div id="dropzone">Drag and drop a file here to upload.</div>
-        <div id="progress"></div>
-    </div>
-    <div class="form-group text-center mb-3">
-        <select id="selectStudent"></select>
-        <select id="selectTask"></select>
-    </div>
-    <div class="form-group text-center mb-3">
-    <button id="assignTaskButton" class="btn btn-primary mr-2">Assign task</button>
-    </div>
-    </div>
-    </div> -->
     <div id="teacherTableArea"><?php require 'teacherTable.php'; ?></div>
 
 

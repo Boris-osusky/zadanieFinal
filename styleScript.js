@@ -31,16 +31,19 @@ function changeIndex(language) {
     var navText = document.getElementById("navText");
     var indexIntro = document.getElementById("indexIntro");
     var navHome = document.getElementById("navHome1");
+    var indexLogout= document.getElementById("indexLogout");
 
     if (jsonData) { // Skontrolujte, či sú údaje z JSON súboru dostupné
         if (language == "sk") {
             navText.textContent = jsonData[0].sk.navText;
             indexIntro.textContent = jsonData[0].sk.indexIntro;
             navHome.textContent = jsonData[0].sk.navHome;
+            indexLogout.textContent = jsonData[0].sk.navLogout;
         } else {
             navText.textContent = jsonData[0].en.navText;
             indexIntro.textContent = jsonData[0].en.indexIntro;
             navHome.textContent = jsonData[0].en.navHome;
+            indexLogout.textContent = jsonData[0].en.navLogout;
         }
     }
     else {
@@ -55,7 +58,14 @@ function changeTeacher(language) {
     var dropzone = document.getElementById("dropzone");
     var assignTaskButton = document.getElementById("assignTaskButton");
     var pointsInput= document.getElementById("pointsInput");
+    var navLogout2 = document.getElementById("navLogout2");
     var navHome = document.getElementById("navHome6");
+    var navText4 = document.getElementById("navText4");
+    var teacherFrom = document.getElementById("teacherFrom");
+    var teacherTo = document.getElementById("teacherTo");
+    var teacherPoints= document.getElementById("teacherPoints");
+    var teacherStudent = document.getElementById("teacherStudent");
+    var teacherTask= document.getElementById("teacherTask");
 
     if (jsonData) { // Skontrolujte, či sú údaje z JSON súboru dostupné
         if (language == "sk") {
@@ -63,12 +73,28 @@ function changeTeacher(language) {
             assignTaskButton.textContent = jsonData[0].sk.assignTaskButton;
             pointsInput.placeholder= jsonData[0].sk.pointsInput;
             navHome.textContent = jsonData[0].sk.navHome;
+            navLogout2.textContent = jsonData[0].sk.navLogout;
+            teacherFrom.textContent = jsonData[0].sk.teacherFrom;
+            teacherTo.textContent = jsonData[0].sk.teacherTo;
+            teacherPoints.textContent= jsonData[0].sk.teacherPoints;
+            teacherStudent.textContent = jsonData[0].sk.teacherStudent;
+            teacherTask.textContent= jsonData[0].sk.teacherTask;
+            navText4.textContent= jsonData[0].sk.navText;
+            document.documentElement.setAttribute('lang', 'sk');
 
         } else {
             dropzone.textContent = jsonData[0].en.dropzone;
             assignTaskButton.textContent = jsonData[0].en.assignTaskButton;
             pointsInput.placeholder= jsonData[0].en.pointsInput;
             navHome.textContent = jsonData[0].en.navHome;
+            navLogout2.textContent = jsonData[0].en.navLogout;
+            teacherFrom.textContent = jsonData[0].en.teacherFrom;
+            teacherTo.textContent = jsonData[0].en.teacherTo;
+            teacherPoints.textContent= jsonData[0].en.teacherPoints;
+            teacherStudent.textContent = jsonData[0].en.teacherStudent;
+            teacherTask.textContent= jsonData[0].en.teacherTask;
+            navText4.textContent= jsonData[0].en.navText;
+            document.documentElement.setAttribute('lang', 'en');
         }
     }
     else {
@@ -85,21 +111,70 @@ function changeStudent(language){
     var navText3= document.getElementById("navText3");
     var navLogout2= document.getElementById("navLogout");
     var navHome = document.getElementById("navHome2");
+    var answerTaskInput= document.getElementById("answerTaskInput");
+    var sqrtNormal= document.getElementById("sqrtNormal");
+    var sqrtHigher= document.getElementById("sqrtHigher");
+    var expHigher= document.getElementById("expHigher");
+    var expLower = document.getElementById("expLower");
+
+    var sum = document.getElementById("sum");
+    var sin= document.getElementById("sin");
+    var cos= document.getElementById("cos");
+    var tan= document.getElementById("tan");
+    var frac = document.getElementById("frac");
+    var lim= document.getElementById("lim");
+    var integral = document.getElementById("integral");
 
     if (jsonData) { // Skontrolujte, či sú údaje z JSON súboru dostupné
         if(language== "sk"){
-            generateTaskButton.value= jsonData[0].sk.loginH3;
-            sendAnsweredTaskButton.value= jsonData[0].sk.loginUser;
-            navText3.textContent = jsonData[0].sk.navText;
+            navText3.textContent = jsonData[0].sk.navText3;
             navLogout2.textContent = jsonData[0].sk.navLogout;
             navHome.textContent = jsonData[0].sk.navHome;
+
+            if(generateTaskButton != null) {
+                answerTaskInput.placeholder = jsonData[0].sk.answerTaskInput;
+                sqrtNormal.textContent= jsonData[0].sk.sqrtNormal;
+                sqrtHigher.textContent= jsonData[0].sk.sqrtHigher;
+                expHigher.textContent= jsonData[0].sk.expHigher;
+                expLower.textContent = jsonData[0].sk.expLower;
+                generateTaskButton.textContent= jsonData[0].sk.generateTaskButton;
+                sendAnsweredTaskButton.textContent= jsonData[0].sk.sendAnsweredTaskButton;
+                sum.textContent = jsonData[0].sk.sum;
+                sin.textContent= jsonData[0].sk.sin;
+                cos.textContent= jsonData[0].sk.cos;
+                tan.textContent= jsonData[0].sk.tan;
+                frac.textContent = jsonData[0].sk.frac;
+                lim.textContent= jsonData[0].sk.lim;
+                integral.textContent = jsonData[0].sk.integral;
+    
+            }
+            document.documentElement.setAttribute('lang', 'sk');
+
         }
         else {
-            generateTaskButton.value= jsonData[0].en.loginH3;
-            sendAnsweredTaskButton.value= jsonData[0].en.loginUser;
-            navText3.textContent = jsonData[0].en.navText;
-            navLogout2.textContent = jsonData[0].sk.navLogout;
+            navText3.textContent = jsonData[0].en.navText3;
+            navLogout2.textContent = jsonData[0].en.navLogout;
             navHome.textContent = jsonData[0].en.navHome;
+            
+            if(generateTaskButton != null) {
+            generateTaskButton.textContent= jsonData[0].en.generateTaskButton;
+            sendAnsweredTaskButton.textContent= jsonData[0].en.sendAnsweredTaskButton;
+            answerTaskInput.placeholder = jsonData[0].en.answerTaskInput;
+            sqrtNormal.textContent= jsonData[0].en.sqrtNormal;
+            sqrtHigher.textContent= jsonData[0].en.sqrtHigher;
+            expHigher.textContent= jsonData[0].en.expHigher;
+            expLower.textContent = jsonData[0].en.expLower;
+        
+            sum.textContent = jsonData[0].en.sum;
+            sin.textContent= jsonData[0].en.sin;
+            cos.textContent= jsonData[0].en.cos;
+            tan.textContent= jsonData[0].en.tan;
+            frac.textContent = jsonData[0].en.frac;
+            lim.textContent= jsonData[0].en.lim;
+            integral.textContent = jsonData[0].en.integral;
+            }
+            document.documentElement.setAttribute('lang', 'en');
+
         }
     }
     else {
@@ -132,6 +207,8 @@ if (jsonData) { // Skontrolujte, či sú údaje z JSON súboru dostupné
         loginSubmit.textContent= jsonData[0].sk.loginSubmit;
         navText.textContent = jsonData[0].sk.navText;
         navHome.textContent = jsonData[0].sk.navHome;
+        document.documentElement.setAttribute('lang', 'sk');
+
 
     }
     else {
@@ -144,6 +221,8 @@ if (jsonData) { // Skontrolujte, či sú údaje z JSON súboru dostupné
         loginSubmit.textContent= jsonData[0].en.loginSubmit;
         navText.textContent = jsonData[0].en.navText;
         navHome.textContent = jsonData[0].en.navHome;
+        document.documentElement.setAttribute('lang', 'en');
+
     }
 }
  else {
@@ -179,6 +258,8 @@ function changeRegister(language) {
             regSurname.textContent = jsonData[0].sk.regSurname;
             regPass.textContent = jsonData[0].sk.regPass;
             navHome.textContent = jsonData[0].sk.navHome;
+            document.documentElement.setAttribute('lang', 'sk');
+
         }
         else {
             regH1.textContent= jsonData[0].en.regH1;
@@ -193,6 +274,7 @@ function changeRegister(language) {
             regSurname.textContent = jsonData[0].en.regSurname;
             regPass.textContent = jsonData[0].en.regPass;
             navHome.textContent = jsonData[0].en.navHome;
+            document.documentElement.setAttribute('lang', 'en');
 
         }
     }
