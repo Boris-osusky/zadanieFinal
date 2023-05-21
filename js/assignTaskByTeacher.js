@@ -19,8 +19,8 @@ $(document).ready(function () {
                     selected: index === 0
                 }));
             });
-
             selectedValue = selectElement.val();
+            console.log("getListOfStudents.php");
             console.log('Selected student value:', selectedValue);
 
             fetchListOfFreeTasks(selectedValue);
@@ -32,14 +32,14 @@ $(document).ready(function () {
 
     selectElement.on('change', function () {
         selectedValue = $(this).val();
-        console.log('Selected student value:', selectedValue);
+        console.log('Selected student value on click:', selectedValue);
 
         fetchListOfFreeTasks(selectedValue);
     });
 
     selectTask.on('change', function () {
         selectedTask = $(this).val();
-        console.log('Selected task value:', selectedTask);
+        console.log('Selected task value on click:', selectedTask);
     });
 
     assignTaskButton.on('click', function () {
@@ -56,6 +56,7 @@ $(document).ready(function () {
                     selectedTeacher: selectedTeacher
                 },
                 success: function (response) {
+                    console.log("assignTaskByTeacher");
                     console.log('Task assigned successfully');
                     location.reload();
                 },
@@ -75,6 +76,7 @@ $(document).ready(function () {
             data: { selectedValue: studentId },
             dataType: 'json',
             success: function (data) {
+                console.log("function fetchListOfFreeTasks success");
                 selectTask.empty();
                 selectedTeacher = data[0].teacher_id;
                 data.forEach(function (item, index) {
@@ -86,7 +88,9 @@ $(document).ready(function () {
                 });
 
                 selectedTask = selectTask.val();
+                console.log("getListOfFreeTasks.php");
                 console.log('Selected task value:', selectedTask);
+                console.log('Selected teacher ID:', selectedTeacher);
             },
             error: function (xhr, status, error) {
                 console.error('Request failed with status:', status);

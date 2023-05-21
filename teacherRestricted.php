@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/dragNdrop.js"></script>
     <script src="js/assignTaskByTeacher.js"></script>
+    <script src="js/svg.js"></script>
     <style>
         #dropzone {
             width: 300px;
@@ -115,7 +116,7 @@
     </div>
     </div>
     </div> -->
-    <div id="teacherTableArea"><?php require 'tableInit.php'; ?></div>
+    <div id="teacherTableArea"><?php require 'teacherTable.php'; ?></div>
 
 
 <script src="styleScript.js"></script>

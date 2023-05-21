@@ -36,6 +36,11 @@ $(document).ready(function () {
         }
     });
 
+    selectElement.on('change', function() {
+        selectedTask = selectElement.val();
+        console.log('Selected task value:', selectedTask);
+    });
+
     generateTaskButton.on('click', function () {
         $.ajax({
             url: 'api/assignTaskByStudent.php',
@@ -84,7 +89,7 @@ $(document).ready(function () {
     });
 
     function printTaskData(taskData, element) {
-        var taskElement = $('<p>').text('Task: ' + '\\( y=5 \\)');
+        var taskElement = $('<p>').text('Task: ' + taskData.task);
         var answerElement = $('<p>').text('Answer: ' + taskData.answer);
         var imagePathElement = $('<p>').text('Image Path: ' + taskData.imagePath);
     

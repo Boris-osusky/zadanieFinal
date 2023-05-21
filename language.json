@@ -2,7 +2,7 @@
     "sk": {
         "navText": "Privátna zóna",
         "navHome": "Domov",
-        "navLogout": "navLogout",
+        "navLogout": "Odhlásiť sa",
         "indexIntro": "Vitajte na stránke",
         "dropzone": "Ak chcete nahrať súbor, potiahnite ho sem.",
         "assignTaskButton": "Priradiť úlohu",
@@ -29,6 +29,7 @@
     "en": {
         "navText": "Private zone",
         "navHome": "Home",
+        "navLogout": "Logout",
         "indexIntro": "Welcome to the page",
         "dropzone": "Drag and drop a file here to upload.",
         "assignTaskButton": "Assign task",

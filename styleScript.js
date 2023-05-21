@@ -83,7 +83,7 @@ function changeStudent(language){
     var generateTaskButton = document.getElementById("generateTaskButton");
     var sendAnsweredTaskButton= document.getElementById("sendAnsweredTaskButton");
     var navText3= document.getElementById("navText3");
-    var navLogout2= document.getElementById("navLogout2");
+    var navLogout2= document.getElementById("navLogout");
     var navHome = document.getElementById("navHome2");
 
     if (jsonData) { // Skontrolujte, či sú údaje z JSON súboru dostupné
