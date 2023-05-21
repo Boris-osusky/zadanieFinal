@@ -1,13 +1,9 @@
 <?php
-$studentId = 1;
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-$hostname = "localhost";
-$username = "xosuskyb";
-$password = "YWQVmLthAv3UEyV";
-$dbname = "zFinal_users";
+session_start();
+$studentId = $_SESSION['id'];
+
+require_once 'config.php';
 
 // Create a connection
 $conn = new mysqli($hostname, $username, $password, $dbname);
@@ -43,6 +39,7 @@ if ($result->num_rows > 0) {
 
         $submittedText = $submitted == 1 ? 'Submitted' : 'Not Submitted';
         $correctAnswerText = $correctAnswer == 1 ? 'Correct Answer' : 'Incorrect Answer';
+        
 
         $tableHTML .= '<tr>
             <td>' . $points . '</td>

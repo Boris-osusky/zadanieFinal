@@ -1,6 +1,7 @@
 <?php
 
-$studentID = 1; //TODO - vybratie studenta zo session
+session_start();
+$studentID = $_SESSION['id']; //TODO - vybratie studenta zo session
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

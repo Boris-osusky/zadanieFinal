@@ -14,8 +14,8 @@ $fileContents = file_get_contents($tmpFilePath);
 $fromDate = $_POST['fromDate'];
 $toDate = $_POST['toDate'];
 $points = $_POST['points'];
-$userId = 2;    //TODO - vybranie ID ucitela zo session
-
+session_start();
+$userId = $_SESSION['id'];    //TODO - vybranie ID ucitela zo session
 $parsed_tasks = [];
 $filesId = [];
 

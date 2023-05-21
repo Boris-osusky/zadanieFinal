@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/dragNdrop.js"></script>
     <script src="js/assignTaskByTeacher.js"></script>
+    <script src="js/svg.js"></script>
     <style>
         #dropzone {
             width: 300px;
@@ -29,12 +30,16 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php">Odhlasit sa</a>
+            </li>
+            </ul>
+        </div>
         </div>
     </nav>
 
@@ -46,7 +51,8 @@
     <select id="selectStudent"></select>
     <select id="selectTask"></select>
     <button id="assignTaskButton">Assign task</button>
-    <div id="teacherTableArea"><?php require 'tableInit.php'; ?></div>
+    <div id="teacherTableArea"><?php require 'teacherTable.php'; ?></div>
+    <button id="exportButton" class="btn btn-primary">SVG</button>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ require_once "config.php";
 
 $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
 
-$sql = "SELECT fullname, email, login, password, role FROM users WHERE login = :login OR email = :email";
+$sql = "SELECT fullname, id, email, login, password, role FROM users WHERE login = :login OR email = :email";
 
 
 $stmt = $pdo->prepare($sql);
@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($_POST['password'], $hashed_password)) {
                 // Save user data to session.
                 $_SESSION["logged"] = true;
+                $_SESSION["id"] = $row['id'];
                 $_SESSION["login"] = $row['login'];
                 $_SESSION["fullname"] = $row['fullname'];
                 $_SESSION["email"] = $row['email'];
