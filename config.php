@@ -4,7 +4,7 @@
     error_reporting(E_ALL);
 
     $hostname = "localhost";
-    $username = "xosuskyb";
-    $password = "YWQVmLthAv3UEyV";
+    $username = "xkremnicanova";
+    $password = "lanavaIjQBRf4PV";
     $dbname = "zFinal_users";
 ?>

@@ -1,0 +1,8 @@
+.langButton:hover {
+    cursor: pointer;
+}
+
+.editorButton {
+    background-color: none;
+    border-color: none;
+}
