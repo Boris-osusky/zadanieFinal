@@ -163,11 +163,34 @@ function userExist($db, $login, $email)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <title>Register student</title>
+    <title>Register</title>
 </head>
-<body>
+<body onload="startPage()">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto navbar-left">
+                    <li class="nav-item">
+                        <a id= "navHome3" class="nav-link" href="index.php">Domov</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id= "navText5" class="nav-link" href="restricted.php">Privátna zóna</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link langButton" onclick="setLanguage('sk')">SK</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link langButton" onclick="setLanguage('en')">EN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <main>
         <body>
             <div class="container mt-5">
@@ -175,19 +198,19 @@ function userExist($db, $login, $email)
                     <div class="col-lg-6 col-md-8 col-sm-10">
                         <div class="card">
                             <div class="card-header">
-                                <h1 class="text-center">Registrácia</h1>
-                                <h2 class="text-center">Vytvorenie nového konta studenta</h2>
+                                <h1 id= "regH1" class="text-center">Registrácia</h1>
+                                <h2 id= "regH2" class="text-center">Vytvorenie nového konta studenta</h2>
                             </div>
                             <div class="card-body">
                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
                                     <div class="form-group mb-3">
-                                        <label for="firstname">Meno:</label>
+                                        <label id= "regName" for="firstname">Meno:</label>
                                         <input type="text" class="form-control" name="firstname" value="" id="firstname" placeholder="napr. Jozef" required>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="lastname">Priezvisko:</label>
+                                        <label id="regSurname" for="lastname">Priezvisko:</label>
                                         <input type="text" class="form-control" name="lastname" value="" id="lastname" placeholder="napr. Mrkvička" required>
                                     </div>
 
@@ -202,12 +225,12 @@ function userExist($db, $login, $email)
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label for="password">Heslo:</label>
+                                        <label id="regPass" for="password">Heslo:</label>
                                         <input type="password" class="form-control" name="password" value="" id="password" required>
                                     </div>
 
                                     <div class="form-group text-center mb-3">
-                                        <button type="submit" class="btn btn-primary btn-block text-center">Vytvoriť konto</button>
+                                        <button id="regSubmit" type="submit" class="btn btn-dark btn-block text-center">Vytvoriť konto</button>
                                     </div>
 
                                     <?php
@@ -215,13 +238,13 @@ function userExist($db, $login, $email)
                                         echo '<div class="alert alert-danger">' . $errmsg . '</div>';
                                     }
                                     if (isset($registered)) {
-                                        echo '<div class="container-md text-center"><p>Teraz sa mozte prihlasit: <a href="login.php" class="btn btn-primary" role="button">Login</a></p></div>';
+                                        echo '<div class="container-md text-center"><p>Teraz sa mozte prihlasit: <a href="login.php" class="btn btn-dark" role="button">Login</a></p></div>';
                                     }
                                 
                                     ?>
 
                                 </form>
-                                <p class="text-center">Mate vytvorene konto? <a href="login.php">Prihlaste sa tu.</a></p>
+                                <p id="regP" class="text-center">Mate vytvorene konto? <a id="regA" href="login.php">Prihlaste sa tu.</a></p>
     </main>
     <script>
     const form = document.querySelector('form');
@@ -239,7 +262,22 @@ function userExist($db, $login, $email)
         }
     });
 </script>
+<script>
+    function startPage(){
+        var language= getCookieValue();
+        changeRegister(language);
+    }
+
+    function setLanguage(language){
+        var d = new Date();
+        d.setTime(d.getTime() + (1 * 60 * 60 * 1000)); // Platnosť cookie - 1 hodina od aktuálneho času
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = "language="+language+"; " + expires + "; path=/";
+        //document.cookie = "language="+language;
+        changeRegister(language);
+    }
+
+</script>
+<script src="styleScript.js"></script>
 </body>
-
-
 </html>
